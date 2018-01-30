@@ -4,11 +4,9 @@ gem 'json', '~> 1.8.6'
 
 gem 'rb-inotify', '~> 0.9.7'
 
-gem 'jekyll'
-
 gem 'rake'
 
-gem 'jekyll', '~> 3.5.2'
+gem 'jekyll', '~> 3.4.0'
 
 group :jekyll_plugins do
   gem 'algoliasearch-jekyll', '~> 0.8.0'
