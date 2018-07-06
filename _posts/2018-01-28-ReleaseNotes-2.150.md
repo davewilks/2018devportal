@@ -1,5 +1,5 @@
 ---
-title: Cloud Elements Version 2.149
+title: Cloud Elements Version 2.150
 date: 2018-01-28
 layout: release-note-item
 release: 2.150
@@ -30,13 +30,13 @@ We added the following comments endpoints to the /files resource:
 * PATCH /file/comments/{commentId}
 * DELETE /file/comments/{commentId}
 
-### Intacct.: Added support for the Event Notification Signature Key
+### Intacct.: Added support for the Callback Notification Signature Key
 
-When setting up events in Intacct you can now include an Event Notification Signature Key.
+When setting up events in Intacct you can now include a Callback Notification Signature Key.
 
 ### Intacct.: Added expense-reports resource
 
-When setting up events in Intacct. you can now include an Event Notification Signature Key.
+When setting up events in Intacct. you can now include a Callback Notification Signature Key.
 
 ### Maximizer: Added support to filter GET response fields
 

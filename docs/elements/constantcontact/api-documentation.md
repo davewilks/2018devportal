@@ -1,8 +1,8 @@
 ---
-heading: Element Name
-seo: API Docs | Element Name | Cloud Elements API Docs
+heading: Constant Contact
+seo: API Docs | Constant Contact | Cloud Elements API Docs
 title: API Docs
-description: Element Name API Documentation.
+description: Constant Contact API Documentation.
 layout: sidebarapidocs
 breadcrumbs: /docs/elements.html
 elementId: 3929

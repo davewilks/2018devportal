@@ -24,7 +24,7 @@ To authenticate an element instance with polling:
   9. Optionally type or select one or more tags to add to the authenticated element instance.
   7. Click **Create Instance**.
 
-  After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](/docs/guides/elements/instances.html) associated with the instance, [map the instance to a common resource](/docs/guides/common-resources/mapping.html), or [use it in a formula template](/docs/guides/formulasC2/build-template.html).
+  After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](https://docs.cloud-elements.com/home/view-element-api-docs) associated with the instance, [map the instance to a virtual resource](https://docs.cloud-elements.com/home/common-object), or [use it in a formula template](https://docs.cloud-elements.com/home/build-formula-templates).
 
 
 ### Configure Polling Through API
@@ -94,7 +94,7 @@ https://api.cloud-elements.com/elements/api-v2/instances \
   "{{page.hdOrcrm}}.autotask.password": "xxxxxxxxxxxxxxxxxxxxxxxx",
   "{{page.hdOrcrm}}.autotask.server.url": "https://ww2.autotask.net",
     "event.notification.enabled": true,
-	  "event.notification.callback.url": "https://api.cloud-elements.io/elements/api-v2/events/{{page.elementKey}}/",
+	  "event.notification.callback.url": "https://api.cloud-elements.com/elements/api-v2/events/{{page.elementKey}}/",
     "event.poller.refresh_interval": "15",
     "event.poller.configuration":{
     	"{{page.pollObject}}": {

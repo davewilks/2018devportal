@@ -36,7 +36,7 @@ HTTP Headers:
 Authorization: User <INSERT_USER_SECRET>, Organization <INSERT_ORGANIZATION_SECRET>
 
 ```
-This instance.json file must be included with your instance request.  Please fill your information to provision.  The “key” into Cloud Elements Magento 2.0 is "magentosoapv19".  This will need to be entered in the “key” field below depending on which Element you wish to instantiate.
+This instance.json file must be included with your instance request.  Please fill your information to provision.  The “key” into Cloud Elements Magento 2.0 is "magentov20".  This will need to be entered in the “key” field below depending on which Element you wish to instantiate.
 
 ```JSON
 {
@@ -81,7 +81,7 @@ Below is a successful JSON response:
     "id": 499,
     "name": "Magento 2.0",
     "hookName": "MagentoSoap",
-    "key": "magentosoapv19",
+    "key": "magentov20",
     "description": "Magento Commerce is the leading provider of open omnichannel innovation. Our open source digital commerce platform and cloud-based omnichannel solutions empower merchants to integrate digital and physical shopping experiences.",
     "image": "https://upload.wikimedia.org/wikipedia/en/c/c2/Magento_logo.png",
     "active": true,

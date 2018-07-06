@@ -1,5 +1,5 @@
 ---
-heading: Infusionsoft CRM Beta
+heading: Infusionsoft CRM
 seo: Query Language | Infusionsoft CRM | Cloud Elements API Docs
 title: Querying
 description: Make database queries using Cloud Elements Query Language.

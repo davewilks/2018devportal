@@ -43,7 +43,7 @@ Authenticating through API follows a multi-step OAuth 2.0 process that involves:
 Use the following API call to request a redirect URL where the user can authenticate with the service provider. Replace `{keyOrId}` with the element key, `{{page.elementKey}}`. Note the `scope` and `authentication.type` parameters that are unique to QuickBooks Online.
 
 ```bash
-curl -X GET /elements/{keyOrId}/oauth/url?apiKey=<api_key>&apiSecret=<api_secret>&callbackUrl=<url>&siteAddress=<url>&scope=com.intuit.quickbooks.accounting openid profile email phone address&authentication.type=oauth2
+curl -X GET /elements/{keyOrId}/oauth/url?apiKey=<api_key>&apiSecret=<api_secret>&callbackUrl=<url>&siteAddress=<url>&scope=com.intuit.quickbooks.accounting&authentication.type=oauth2
 ```
 
 #### Query Parameters
@@ -52,7 +52,7 @@ curl -X GET /elements/{keyOrId}/oauth/url?apiKey=<api_key>&apiSecret=<api_secret
 | :------------- | :------------- |
 | apiKey |  {{site.data.glossary.element-auth-api-key}} This is the **{{page.apiKey}}** that you recorded in [API Provider Setup section](setup.html). |
 | apiSecret |    {{site.data.glossary.element-auth-api-secret}} This is the **{{page.apiSecret}}** that you recorded in [API Provider Setup section](setup.html).  |
-| callbackUrl |   {{site.data.glossary.element-auth-api-key}} This is the **{{page.callbackURL}}** that you recorded in [API Provider Setup section](setup.html)   |
+| callbackUrl |   {{site.data.glossary.element-auth-oauth-callback}} This is the **{{page.callbackURL}}** that you recorded in [API Provider Setup section](setup.html)   |
 | scope   | The scope provided is required to access data in QuickBooks online.  |
 | authentication.type   | Identifies that you are authenticating with OAuth 2.0.  |
 
@@ -60,18 +60,16 @@ curl -X GET /elements/{keyOrId}/oauth/url?apiKey=<api_key>&apiSecret=<api_secret
 
 ```bash
 curl -X GET \
-  'https://api.cloud-elements.com/elements/api-v2/elements/{{page.elementKey}}/oauth/url?apiKey=fake_api_key&apiSecret=fake_api_secret&callbackUrl=https://www.mycoolapp.com/auth&scope=com.intuit.quickbooks.accounting%20openid%20profile%20email%20phone%20address&authentication.type=oauth2' \
+  'https://api.cloud-elements.com/elements/api-v2/elements/{{page.elementKey}}/oauth/url?apiKey=fake_api_key&apiSecret=fake_api_secret&callbackUrl=https://www.mycoolapp.com/auth&scope=com.intuit.quickbooks.accounting&authentication.type=oauth2' \
 ```
 
 #### Example Response
 
 Use the `oauthUrl` in the response to allow users to authenticate with the vendor.
 
-<Replace the below oauthUrl value with an actual one from Postman.>
-
 ```json
 {
-"oauthUrl": "https://appcenter.intuit.com/connect/oauth2?scope=com.intuit.quickbooks.accounting+openid+profile+email+phone+address&response_type=code&redirect_uri=https%3A%2F%2Fhttpbin.org%2Fget&state=quickbooks&client_id=Q0rGWmlUp1UFMHPqaZ8nwjyiA5linuQ23RmjsMPHL658osSGlk",
+"oauthUrl": "https://appcenter.intuit.com/connect/oauth2?scope=com.intuit.quickbooks.accounting&response_type=code&redirect_uri=https%3A%2F%2Fhttpbin.org%2Fget&state=quickbooks&client_id=Q0rGWmlUp1UFMHPqaZ8nwjyiA5linuQ23RmjsMPHL658osSGlk",
 "element": "{{page.elementKey}}"
 }
 ```
@@ -124,6 +122,7 @@ To authenticate an element instance:
         "oauth.callback.url": "<CALLBACK_URL>",
         "oauth.api.key": "<CONSUMER_KEY>",
       	"oauth.api.secret": "<CONSUMER_SECRET>",
+        "quickbooks.minorversion":"<VERSION_NUMBER>",
         "authentication.type" : "oauth2",
         "use_sandbox": "<true_or_false>",
         "scope" : "com.intuit.quickbooks.accounting openid profile email phone address"
@@ -161,7 +160,8 @@ curl -X POST \
   "configuration": {
     "oauth.callback.url": "https;//mycoolapp.com",
     "oauth.api.key": "xxxxxxxxxxxxxxxxxx",
-    "oauth.api.secret": "xxxxxxxxxxxxxxxxxxxxxxxx"
+    "oauth.api.secret": "xxxxxxxxxxxxxxxxxxxxxxxx",
+    "quickbooks.minorversion":"23",
     "authentication.type" : "oauth2",
     "use_sandbox": "true",
     "scope" : "com.intuit.quickbooks.accounting openid profile email phone address"
@@ -188,6 +188,7 @@ API parameters not shown in {{site.console}} are in `code formatting`.
 | `oauth.api.secret` | {{site.data.glossary.element-auth-api-secret}} This is the **{{page.apiSecret}}** that you noted in [API Provider Setup](setup.html). | string |
 | `oauth.callback.url` | {{site.data.glossary.element-auth-api-key}} This is the **{{page.callbackURL}}** that you noted in [API Provider Setup](setup.html).  | string |
 |  `authentication.type`  |  Identifies the authentication type to use with the request. |  string |
+| `quickbooks.minorversion`   | A specific version of the API other than the generally available version. For more information, see [Minor Versions in the QuickBooks docs](https://developer.intuit.com/docs/00_quickbooks_online/2_build/20_explore_the_quickbooks_online_api/80_minor_versions).  | STRING  |
 | scope   |  Identifies the QuickBooks API access that your application is requesting. | string  |
 | `tags` | {{site.data.glossary.element-auth-tags}} | string |
 
@@ -272,7 +273,7 @@ To authenticate an element instance:
 7. Click **Create Instance**.
 8. Provide your QuickBooks Online, and then allow the connection.
 
-After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](/docs/guides/elements/instances.html) associated with the instance, [map the instance to a common resource](/docs/guides/common-resources/mapping.html), or [use it in a formula template](/docs/guides/formulasC2/build-template.html).
+After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](https://docs.cloud-elements.com/home/view-element-api-docs) associated with the instance, [map the instance to a virtual data resource](https://docs.cloud-elements.com/home/common-object), or [use it in a formula template](https://docs.cloud-elements.com/home/formula-template).
 
 ### Authenticate Through API
 

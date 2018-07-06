@@ -36,6 +36,7 @@ To authenticate an element instance:
 4. Hover over the element card, and then click **Authenticate**.
 ![Create Instance](/assets/img/elements/authenticate-instance.gif)
 5. Enter a name for the element instance.
+6. In **Maximizer Datacenter** enter the data center that you use to access Maximizer if different than the default `caw`.
 6. In **Alias** enter the account-specific portion of your URL. For example, if your URL is `https://caw.maximizercrmlive.com/Cloud-Elements` enter `Cloud-Elements`.
 7. In **Api Url** enter the API Base URL provided to you when Maximizer granted API access.
 
@@ -45,7 +46,7 @@ To authenticate an element instance:
 7. Click **Create Instance**.
 8. Log in to {{page.apiProvider}}, and then allow the connection.
 
-After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](/docs/guides/elements/instances.html) associated with the instance, [map the instance to a common resource](/docs/guides/common-resources/mapping.html), or [use it in a formula template](/docs/guides/formulasC2/build-template.html).
+After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](https://docs.cloud-elements.com/home/view-element-api-docs) associated with the instance, [map the instance to a virtual data resource](https://docs.cloud-elements.com/home/common-object), or [use it in a formula template](https://docs.cloud-elements.com/home/formula-template).
 
 ## Authenticate Through API
 
@@ -75,7 +76,7 @@ curl -X GET /elements/{keyOrId}/oauth/url?apiKey=<api_key>&apiSecret=<api_secret
 | :------------- | :------------- |
 | apiKey |  {{site.data.glossary.element-auth-api-key}} This is the **{{page.apiKey}}** that you recorded in [API Provider Setup](setup.html). |
 | apiSecret |    {{site.data.glossary.element-auth-api-secret}} This is the **{{page.apiSecret}}** that you recorded in [API Provider Setup](setup.html).  |
-| callbackUrl |   {{site.data.glossary.element-auth-api-key}} This is the **{{page.callbackURL}}** that you recorded in [API Provider Setup](setup.html)   |
+| callbackUrl |   {{site.data.glossary.element-auth-oauth-callback}} This is the **{{page.callbackURL}}** that you recorded in [API Provider Setup](setup.html)   |
 
 #### Example cURL
 
@@ -135,7 +136,10 @@ To authenticate an element instance:
       "configuration": {
         "oauth.callback.url": "<{{page.heading}} app {{page.callbackURL}} >",
         "oauth.api.key": "<{{page.heading}} app {{page.apiKey}}>",
-      	"oauth.api.secret": "<{{page.heading}} app {{page.apiSecret}}>"
+      	"oauth.api.secret": "<{{page.heading}} app {{page.apiSecret}}>",
+        "maximizer.datacenter": "caw",
+        "maximizer.url": "https://ca1.maximizercrmlive.com/api45",
+        "maximizer.alias": "CloudElements"
       },
       "tags": [
         "<Add_Your_Tag>"
@@ -169,7 +173,10 @@ curl -X POST \
   "configuration": {
     "oauth.callback.url": "https;//mycoolapp.com",
     "oauth.api.key": "Rand0MAP1-key",
-    "oauth.api.secret": "fak3AP1-s3Cr3t"
+    "oauth.api.secret": "fak3AP1-s3Cr3t".
+    "maximizer.datacenter": "caw",
+    "maximizer.url": "https://ca1.maximizercrmlive.com/api45",
+    "maximizer.alias": "CloudElements"
   },
   "tags": [
     "Docs"

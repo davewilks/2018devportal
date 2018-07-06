@@ -66,10 +66,10 @@ To authenticate an element instance with polling:
 4. Hover over the element card, and then click **Authenticate**.
 ![Create Instance](/assets/img/elements/authenticate-instance.gif)
 5. Enter a name for the element instance.
+2. To enable hash verification in the headers of event callbacks, click **Show Optional Fields**, and then add a key to **Callback Notification Signature Key**.
 7. Switch **Events Enabled** on.
 8. In **Event Vendor Type**, select **Polling**.
 8. Add an **Event Notification Callback URL**.
-9. Optionally include an **Event Notification Signature Key** to identify if events have been tampered with.
 4. Use the __Event poller refresh interval (mins)__ slider or enter a number in minutes to specify how often Cloud Elements should poll for changes.
 5. Select the resources to poll.
 6. Advanced users can further configure polling:
@@ -79,7 +79,7 @@ To authenticate an element instance with polling:
   ![Configure Polling JSON](/assets/img/elements/configure-polling2.gif)
 7. Click **Create Instance**.
 
-After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](/docs/guides/elements/instances.html) associated with the instance, [map the instance to a common resource](/docs/guides/common-resources/mapping.html), or [use it in a formula template](/docs/guides/formulasC2/build-template.html).
+After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](https://docs.cloud-elements.com/home/view-element-api-docs) associated with the instance, [map the instance to a virtual data resource](https://docs.cloud-elements.com/home/common-object), or [use it in a formula template](https://docs.cloud-elements.com/home/formula-template).
 
 ### Configure Polling Through API
 
@@ -111,7 +111,7 @@ To authenticate an element instance with polling:
            "scope" : "com.intuit.quickbooks.accounting openid profile email phone address",
            "event.notification.enabled": true,
            "event.vendor.type": "polling",
-           "event.notification.callback.url": "https://api.cloud-elements.io/elements/api-v2/events/{{page.elementKey}}/",
+           "event.notification.callback.url": "https://api.cloud-elements.com/elements/api-v2/events/{{page.elementKey}}/",
            "event.notification.signature.key": "<OPTIONAL_SIGNATURE_KEY>",
             "event.poller.refresh_interval": "15",
            "event.poller.urls": "bill-paymentsbillsclassescredit-memoscredit-termscurrenciescustomersemployeesinvoicesjournal-entriesledger-accountspayment-methodspaymentsproductspurchase-ordersrefund-receiptssales-receiptstax-codestax-ratestime-activitiesvendor-creditsvendors"
@@ -145,7 +145,7 @@ To authenticate an element instance with polling:
        "filter.response.nulls": true,
        "event.notification.enabled": true,
        "event.vendor.type": "polling",
-       "event.notification.callback.url": "https://api.cloud-elements.io/elements/api-v2/events/{{page.elementKey}}/",
+       "event.notification.callback.url": "https://api.cloud-elements.com/elements/api-v2/events/{{page.elementKey}}/",
        "event.notification.signature.key": "<OPTIONAL_SIGNATURE_KEY>",
       "event.poller.refresh_interval": "15",
        "event.poller.urls": "bill-paymentsbillsclassescredit-memoscredit-termscurrenciescustomersemployeesinvoicesjournal-entriesledger-accountspayment-methodspaymentsproductspurchase-ordersrefund-receiptssales-receiptstax-codestax-ratestime-activitiesvendor-creditsvendors"
@@ -191,7 +191,7 @@ curl -X POST \
     "scope" : "com.intuit.quickbooks.accounting openid profile email phone address",
     "event.notification.enabled": true,
     "event.vendor.type": "polling",
-    "event.notification.callback.url": "https://api.cloud-elements.io/elements/api-v2/events/{{page.elementKey}}/",
+    "event.notification.callback.url": "https://api.cloud-elements.com/elements/api-v2/events/{{page.elementKey}}/",
     "event.notification.signature.key": "xxxxxxxxxxxxxxxxxxxxxx",
     "event.poller.refresh_interval": "15",
     "event.poller.urls": "bill-paymentsbillsclassescredit-memoscredit-termscurrenciescustomersemployeesinvoicesjournal-entriesledger-accountspayment-methodspaymentsproductspurchase-ordersrefund-receiptssales-receiptstax-codestax-ratestime-activitiesvendor-creditsvendors"
@@ -228,7 +228,7 @@ curl -X POST \
     "oauth.api.secret": "<CONSUMER_SECRET>"
     "event.notification.enabled": true,
     "event.vendor.type": "polling",
-    "event.notification.callback.url": "https://api.cloud-elements.io/elements/api-v2/events/{{page.elementKey}}/",
+    "event.notification.callback.url": "https://api.cloud-elements.com/elements/api-v2/events/{{page.elementKey}}/",
     "event.notification.signature.key": "xxxxxxxxxxxxxxxxxxxxxx",
     "event.poller.refresh_interval": "15",
     "event.poller.urls": "bill-paymentsbillsclassescredit-memoscredit-termscurrenciescustomersemployeesinvoicesjournal-entriesledger-accountspayment-methodspaymentsproductspurchase-ordersrefund-receiptssales-receiptstax-codestax-ratestime-activitiesvendor-creditsvendors"
@@ -250,7 +250,7 @@ API parameters not shown in {{site.console}} are in `code formatting`.
 | Events Enabled </br>`event.notification.enabled` | *Optional*. Identifies that events are enabled for the element instance.</br>Default: `false`.  | boolean |
 | Vendor Event Type </br>`event.vendor.type` | *Optional*. Identifies the type of events enabled for the instance, either `webhook` or `polling`. | string |
 | Event Notification Callback URL</br>`event.notification.callback.url` |  The URL where you want Cloud Elements to send the events. | string |
-| Event Notification Signature Key </br>`event.notification.signature.key` | *Optional*. A user-defined key for added security to show that events have not been tampered with. | string |
+| Callback Notification Signature Key </br>`event.notification.signature.key` | *Optional*. A user-defined key for added security to show that events have not been tampered with. | string |
 | Event poller refresh interval (mins)</br>`event.poller.refresh_interval`  | A number in minutes to identify how often the poller should check for changes. |  number|
 | `event.poller.urls`  | The objects that should be polled. |
 | tags | *Optional*. User-defined tags to further identify the instance. | string |
@@ -270,10 +270,10 @@ To authenticate an element instance with webhooks:
 4. Hover over the element card, and then click **Authenticate**.
 ![Create Instance](/assets/img/elements/authenticate-instance.gif)
 5. Enter a name for the element instance.
+2. To enable hash verification in the headers of event callbacks, click **Show Optional Fields**, and then add a key to **Callback Notification Signature Key**.
 7. Switch **Events Enabled** on.
 8. In **Event Vendor Type**, select **Webhook**.
 8. Add an **Event Notification Callback URL**.
-9. Optionally include an **Event Notification Signature Key** to identify if events have been tampered with.
 6. Advanced users can further configure polling:
   - Click <img src="/assets/img/platform-icons/code.png" alt="Code Button" class="inlineImage"> to edit the polling configuration JSON directly.
   ![Configure Polling UI](/assets/img/elements/configure-polling-json.gif)
@@ -281,7 +281,7 @@ To authenticate an element instance with webhooks:
   ![Configure Polling JSON](/assets/img/elements/configure-polling2.gif)
 7. Click **Create Instance**.
 
-After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](/docs/guides/elements/instances.html) associated with the instance, [map the instance to a common resource](/docs/guides/common-resources/mapping.html), or [use it in a formula template](/docs/guides/formulasC2/build-template.html).
+After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](https://docs.cloud-elements.com/home/view-element-api-docs) associated with the instance, [map the instance to a virtual data resource](https://docs.cloud-elements.com/home/common-object), or [use it in a formula template](https://docs.cloud-elements.com/home/formula-template).
 
 ### Configure Webhooks Through API
 
@@ -313,7 +313,7 @@ To authenticate an element instance with webhooks:
            "scope" : "com.intuit.quickbooks.accounting openid profile email phone address",
            "event.notification.enabled": true,
            "event.vendor.type": "webhooks",
-           "event.notification.callback.url": "https://api.cloud-elements.io/elements/api-v2/events/{{page.elementKey}}/",
+           "event.notification.callback.url": "https://api.cloud-elements.com/elements/api-v2/events/{{page.elementKey}}/",
            "event.notification.signature.key": "<OPTIONAL_SIGNATURE_KEY>"
           },
          "tags":[
@@ -345,7 +345,7 @@ To authenticate an element instance with webhooks:
        "filter.response.nulls": true,
        "event.notification.enabled": true,
        "event.vendor.type": "webhook",
-       "event.notification.callback.url": "https://api.cloud-elements.io/elements/api-v2/events/{{page.elementKey}}/",
+       "event.notification.callback.url": "https://api.cloud-elements.com/elements/api-v2/events/{{page.elementKey}}/",
        "event.notification.signature.key": "<OPTIONAL_SIGNATURE_KEY>"
      },
      "tags": [
@@ -389,7 +389,7 @@ curl -X POST \
     "scope" : "com.intuit.quickbooks.accounting openid profile email phone address",
     "event.notification.enabled": true,
     "event.vendor.type": "webhook",
-    "event.notification.callback.url": "https://api.cloud-elements.io/elements/api-v2/events/{{page.elementKey}}/",
+    "event.notification.callback.url": "https://api.cloud-elements.com/elements/api-v2/events/{{page.elementKey}}/",
     "event.notification.signature.key": "xxxxxxxxxxxxxxxxxxxxxx"
     },
   "tags": [
@@ -424,7 +424,7 @@ curl -X POST \
     "oauth.api.secret": "<CONSUMER_SECRET>"
     "event.notification.enabled": true,
     "event.vendor.type": "webhook",
-    "event.notification.callback.url": "https://api.cloud-elements.io/elements/api-v2/events/{{page.elementKey}}/",
+    "event.notification.callback.url": "https://api.cloud-elements.com/elements/api-v2/events/{{page.elementKey}}/",
     "event.notification.signature.key": "xxxxxxxxxxxxxxxxxxxxxx"
   },
   "tags": [
@@ -444,5 +444,5 @@ API parameters not shown in the {{site.console}} are in `code formatting`.
 | Events Enabled </br>`event.notification.enabled` | *Optional*. Identifies that events are enabled for the element instance.</br>Default: `false`.  | boolean |
 | Vendor Event Type </br>`event.vendor.type` | *Optional*. Identifies the type of events enabled for the instance, either `webhook` or `polling`. | string |
 | Event Notification Callback URL</br>`event.notification.callback.url` |  The URL where you want Cloud Elements to send the events. | string |
-| Event Notification Signature Key </br>`event.notification.signature.key` | *Optional*. A user-defined key for added security to show that events have not been tampered with. | string |
+| Callback Notification Signature Key </br>`event.notification.signature.key` | *Optional*. A user-defined key for added security to show that events have not been tampered with. | string |
 | tags | *Optional*. User-defined tags to further identify the instance. | string |

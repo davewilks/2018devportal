@@ -63,7 +63,7 @@ To authenticate an element instance with polling:
 7. Click **Create Instance**.
 8. Provide your {{page.heading}} credentials, and then allow the connection.
 
-After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](/docs/guides/elements/instances.html#test-an-element-instance) associated with the instance, [map the instance to a common resource](/docs/guides/common-resources/mapping.html), or [use it in a formula template](/docs/guides/formulasC2/build-template.html).
+After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](https://docs.cloud-elements.com/home/view-element-api-docs#test-an-element-instance) associated with the instance, [map the instance to a virtual data resource](https://docs.cloud-elements.com/home/common-object), or [use it in a formula template](https://docs.cloud-elements.com/home/formula-template).
 
 ### Configure Polling Through API
 
@@ -147,7 +147,7 @@ https://api.cloud-elements.com/elements/api-v2/instances \
     "oauth.api.key": "Rand0MAP1-key",
     "oauth.api.secret": "fak3AP1-s3Cr3t",
     "event.notification.enabled": true,
-	  "event.notification.callback.url": "https://api.cloud-elements.io/elements/api-v2/events/woocommercerest/",
+	  "event.notification.callback.url": "https://api.cloud-elements.com/elements/api-v2/events/woocommercerest/",
     "event.poller.refresh_interval": "15",
     "event.poller.configuration":{
     	"contacts": {

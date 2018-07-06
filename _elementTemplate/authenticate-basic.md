@@ -22,7 +22,7 @@ You can authenticate with {{page.apiProvider}} to create your own instance of th
 
 ## Authenticate Through the UI
 
-Use the UI to authenticate with {{page.apiProvider}} and create an element instance. You will need your **Username**  and **Password** that you identified in [API Provider Setup](setup.html).
+Use the UI to authenticate with {{page.apiProvider}} and create an element instance. You will need your **{{page.username}}**  and **{{page.password}}** that you identified in [API Provider Setup](setup.html).
 
 If you are configuring events, see the [Events section](events.html).
 
@@ -37,7 +37,7 @@ To authenticate an element instance:
 9. Optionally type or select one or more Element Instance Tags to add to the authenticated element instance.
 7. Click **Create Instance**.
 
-After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](/docs/guides/elements/instances.html) associated with the instance, [map the instance to a common resource](/docs/guides/common-resources/mapping.html), or [use it in a formula template](/docs/guides/formulasC2/build-template.html).
+After successfully authenticating, we give you several options for next steps. [Make requests using the API docs](https://docs.cloud-elements.com/home/view-element-api-docs) associated with the instance, [map the instance to a virtual resource](https://docs.cloud-elements.com/home/common-object), or [use it in a formula template](https://docs.cloud-elements.com/home/build-formula-templates).
 
 ## Authenticate Through API
 
@@ -115,50 +115,52 @@ In this example, the instance ID is `12345` and the instance token starts with "
 {
   "id": 12345,
   "name": "API Instance",
-  "createdDate": "2017-08-07T18:46:38Z",
-  "token": "ABC/Dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "createdDate": "2018-04-04T20:44:36Z",
+  "token": "ABC/Dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
   "element": {
-    "id": 13766,
-    "name": "iContact",
-    "key": "icontact",
-    "description": "Add an iContact instance to connect your existing iContact account to the Marketing Hub, allowing you to manage campaigns, lists, contacts etc. across multiple Marketing Elements. You will need your iContact account information to add an instance.",
-    "image": "elements/provider_icontact.png",
-    "active": true,
-    "deleted": false,
-    "typeOauth": false,
-    "trialAccount": false,
-    "resources": [ ],
-    "transformationsEnabled": true,
-    "bulkDownloadEnabled": true,
-    "bulkUploadEnabled": true,
-    "cloneable": true,
-    "extendable": false,
-    "beta": false,
-    "authentication": {
-        "type": "custom"
+      "id": 5993,
+      "name": "Insightly",
+      "key": "insightly",
+      "description": "Add an Insightly instance to connect your existing Insightly account to the CRM hub, allowing you to manage contacts, accounts, leads, activities and users across multiple Elements. You will need your Insightly account information to add an instance.",
+      "image": "elements/provider_insightly.png",
+      "active": true,
+      "deleted": false,
+      "typeOauth": false,
+      "trialAccount": false,
+      "resources": [ ],
+      "transformationsEnabled": true,
+      "bulkDownloadEnabled": true,
+      "bulkUploadEnabled": true,
+      "cloneable": true,
+      "extendable": true,
+      "beta": false,
+      "authentication": {
+          "type": "basic"
+      },
+      "extended": false,
+      "hub": "crm",
+      "protocolType": "http",
+      "parameters": [  ]
     },
-    "extended": false,
-    "hub": "marketing",
-    "protocolType": "http",
-    "parameters": [  ],
-    "private": false
-    },
-  "elementId": 13766,
-  "tags": [
-    "Docs"
-  ],
-  "provisionInteractions": [],
-  "valid": true,
-  "disabled": false,
-  "maxCacheSize": 0,
-  "cacheTimeToLive": 0,
-  "configuration": {    },
-  "eventsEnabled": false,
-  "traceLoggingEnabled": false,
-  "cachingEnabled": false,
-  "externalAuthentication": "none",
-  "user": {
-    "id": 12345
+    "elementId": 5993,
+    "tags": [
+        "Docs"
+    ],
+    "provisionInteractions": [],
+    "valid": true,
+    "disabled": false,
+    "maxCacheSize": 0,
+    "cacheTimeToLive": 0,
+    "configuration": {    },
+    "eventsEnabled": false,
+    "traceLoggingEnabled": false,
+    "cachingEnabled": false,
+    "externalAuthentication": "none",
+    "user": {
+        "id": 123456,
+        "emailAddress": "claude.elements@cloud-elements.com",
+        "firstName": "Claude",
+        "lastName": "Elements"
     }
 }
 ```
